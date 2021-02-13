@@ -1,9 +1,8 @@
 import React from 'react';
 
-const Form = ({ inputText, setInputText, todos, setTodos }) => {
+const Form = ({ inputText, setInputText, todos, setTodos, setStatus }) => {
 
     const inputTextHandler = (e) => {
-        console.log(e.target.value);
         setInputText(e.target.value);
     };
 
@@ -15,6 +14,11 @@ const Form = ({ inputText, setInputText, todos, setTodos }) => {
         ]);
         setInputText("");
     }
+
+    const statusHandler = (e) => {
+        setStatus(e.target.value)
+    }
+
 
     return (
         <>
@@ -32,7 +36,10 @@ const Form = ({ inputText, setInputText, todos, setTodos }) => {
                 >
                     <i className="fas fa-plus-square" />
                 </button>
-                <div className="select">
+                <div
+                    className="select"
+                    onChange={statusHandler}
+                >
                     <select
                         className="filter-todo"
                         name="todos"
